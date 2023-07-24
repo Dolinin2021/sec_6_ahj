@@ -4,7 +4,7 @@ export default function dragNdrop() {
   const listItems = document.querySelectorAll('.list__item');
   const lists = document.querySelectorAll('.list');
 
-  for (let i = 0; i < listItems.length; i++) {
+  for (let i = 0; i < listItems.length; i+=1) {
     const item = listItems[i];
 
     item.addEventListener('dragstart', () => {
@@ -25,7 +25,7 @@ export default function dragNdrop() {
       item.remove();
     });
 
-    for (let j = 0; j < lists.length; j++) {
+    for (let j = 0; j < lists.length; j+=1) {
       const list = lists[j];
 
       list.addEventListener('dragover', (e) => {
