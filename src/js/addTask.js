@@ -1,7 +1,7 @@
 import dragNdrop from './dragNdrop';
 
-export default function addTask(e) {
-  const parent = e.closest('.boards__item');
+export default function addTask(elem) {
+  const parent = elem.closest('.boards__item');
   const list = parent.querySelector('.list');
   const addBtn = parent.querySelector('.add__item-btn');
   const cancelBtn = parent.querySelector('.cancel__item-btn');

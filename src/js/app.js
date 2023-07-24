@@ -6,10 +6,8 @@ import addBoard from './addBoard';
 const button = document.querySelector('.button');
 const addBtns = document.querySelectorAll('.add__btn');
 
-addBtns.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    addTask(e.target);
-  });
+addBtns.forEach((elem) => {
+  elem.addEventListener('click', (e) => addTask(e.target));
 });
 
 button.addEventListener('click', addBoard);
