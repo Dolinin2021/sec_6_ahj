@@ -1,50 +1,50 @@
 let draggedItem = null;
 
 export default function dragNdrop() {
-    const listItems = document.querySelectorAll('.list__item');
-    const lists = document.querySelectorAll('.list');
+  const listItems = document.querySelectorAll('.list__item');
+  const lists = document.querySelectorAll('.list');
 
-    for(let i = 0; i < listItems.length; i++) {
-        const item = listItems[i];
-        
-        item.addEventListener('dragstart', () => {
-            draggedItem = item;
-            setTimeout(() => {
-                item.style.display = 'none';
-            }, 0);
-        });
+  for (let i = 0; i < listItems.length; i++) {
+    const item = listItems[i];
 
-        item.addEventListener('dragend', () => {
-            setTimeout(() => {
-                item.style.display = 'block';
-                draggedItem = null;
-            }, 0);
-        });
+    item.addEventListener('dragstart', () => {
+      draggedItem = item;
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 0);
+    });
 
-        item.addEventListener('dblclick', () => {
-            item.remove();
-        });
+    item.addEventListener('dragend', () => {
+      setTimeout(() => {
+        item.style.display = 'block';
+        draggedItem = null;
+      }, 0);
+    });
 
-        for(let j = 0; j < lists.length; j++) {
-            const list = lists[j];
+    item.addEventListener('dblclick', () => {
+      item.remove();
+    });
 
-            list.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
+    for (let j = 0; j < lists.length; j++) {
+      const list = lists[j];
 
-            list.addEventListener('dragenter', function(e) {
-                e.preventDefault();
-                this.style.backgroundColor = 'rgba(0,0,0,.3)';
-            });
+      list.addEventListener('dragover', (e) => {
+        e.preventDefault();
+      });
 
-            list.addEventListener('dragleave', function() {
-                this.style.backgroundColor = 'rgba(0,0,0,0)';
-            });
+      list.addEventListener('dragenter', function (e) {
+        e.preventDefault();
+        this.style.backgroundColor = 'rgba(0,0,0,.3)';
+      });
 
-            list.addEventListener('drop', function() {
-                this.style.backgroundColor = 'rgba(0,0,0,0)';
-                this.append(draggedItem);
-            });
-        }
+      list.addEventListener('dragleave', function () {
+        this.style.backgroundColor = 'rgba(0,0,0,0)';
+      });
+
+      list.addEventListener('drop', function () {
+        this.style.backgroundColor = 'rgba(0,0,0,0)';
+        this.append(draggedItem);
+      });
     }
+  }
 }

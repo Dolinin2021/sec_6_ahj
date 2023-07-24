@@ -1,11 +1,11 @@
-import changeTitle from "./changeTitle";
-import dragNdrop from "./dragNdrop";
+import changeTitle from './changeTitle';
+import dragNdrop from './dragNdrop';
 
 export default function addBoard() {
-    const boards = document.querySelector('.boards');
-    const board = document.createElement('div');
-    board.classList.add('boards__item');
-    board.innerHTML = `
+  const boards = document.querySelector('.boards');
+  const board = document.createElement('div');
+  board.classList.add('boards__item');
+  board.innerHTML = `
     <span contenteditable="true" class="title">Введите название</span>
     <div class="list">
         <div class="list__item" draggable="true">Стартовая карточка</div>
@@ -19,7 +19,7 @@ export default function addBoard() {
     </div>
     <div class="add__btn"> <span> + </span> Добавить карточку </div>
     `;
-    boards.append(board); 
-    changeTitle();
-    dragNdrop();
+  boards.append(board);
+  changeTitle();
+  dragNdrop();
 }
