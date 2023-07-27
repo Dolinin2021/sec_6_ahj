@@ -4,6 +4,7 @@ import dragNdrop from './dragNdrop';
 export default function addBoard() {
   const boards = document.querySelector('.boards');
   const board = document.createElement('div');
+
   board.classList.add('boards__item');
   board.innerHTML = `
     <span contenteditable="true" class="title">Введите название</span>
