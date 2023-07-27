@@ -12,8 +12,9 @@ export default function dragNdrop() {
   }
 
   function dragend(item) {
+    const elem = item;
     setTimeout(() => {
-      item.style.display = 'block';
+      elem.style.display = 'block';
       dragItem = null;
     }, 0);
   }
