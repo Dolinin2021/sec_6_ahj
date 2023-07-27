@@ -4,15 +4,15 @@ export default function dragNdrop() {
   const listItems = document.querySelectorAll('.list__item');
   const lists = document.querySelectorAll('.list');
 
-  function dragstart(item) {
-    dragItem = item;
+  function dragstart(e) {
+    dragItem = e.target;
     setTimeout(() => {
       dragItem.style.display = 'none';
     }, 0);
   }
 
-  function dragend(item) {
-    const elem = item;
+  function dragend(e) {
+    const elem = e.target;
     setTimeout(() => {
       elem.style.display = 'block';
       dragItem = null;
@@ -27,9 +27,9 @@ export default function dragNdrop() {
   for (let i = 0; i < listItems.length; i += 1) {
     const item = listItems[i];
 
-    item.addEventListener('dragstart', dragstart(item));
+    item.addEventListener('dragstart', dragstart);
 
-    item.addEventListener('dragend', dragend(item));
+    item.addEventListener('dragend', dragend);
 
     item.addEventListener('dblclick', () => {
       item.remove();
